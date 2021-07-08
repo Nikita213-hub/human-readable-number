@@ -4,17 +4,17 @@ module.exports = function toReadable (number) {
     11 : "eleven",12 : "twelve",13 : "thirteen",14 : "fourteen",15 : "fifteen",16 : "sixteen",17 : "seventeen",18 : "eighteen",
     19 : "nineteen",20 : "twenty",30 : "thirty",40 : "forty",50 : "fifty",60 : "sixty",70 : "seventy",80 : "eighty",90 : "ninety"
   };
-  let arr = num.toString().split('');
+  let arr = number.toString().split('');
   
-  if (num <= 20) {
-   return readableNums[num];
+  if (number <= 20) {
+   return readableNums[number];
   }
   
-  if (num > 20 && num < 100) {
+  if (number > 20 && number < 100) {
    return `${readableNums[arr[0] * 10]} ${readableNums[arr[1]]}`;
   }  
   
-  if (num > 99) {
+  if (number > 99) {
    if (arr[1] === '0' && arr[2] === '0') {
        return `${readableNums[arr[0]]} hundred`;
    }
@@ -28,11 +28,11 @@ module.exports = function toReadable (number) {
    }
   }
   
-  if ( num > 119 && arr[2] === '0' && arr[1] !== '0') {
+  if ( number > 119 && arr[2] === '0' && arr[1] !== '0') {
    return `${readableNums[arr[0]]} hundred ${readableNums[arr[1] * 10]}`;
   }
   
-  if (num > 120) {
+  if (number > 120) {
    return `${readableNums[arr[0]]} hundred ${readableNums[arr[1] * 10]} ${readableNums[arr[2]]}`;
   }
 }
